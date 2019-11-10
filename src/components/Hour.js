@@ -12,7 +12,7 @@ const defaultProps = {
 const Hour = ({ children }) => {
   return (
     <PseudoBox mt="6" mb="2" _first={{ mt: 4 }}>
-      <Heading as="h4" fontSize="md">
+      <Heading as="h4" fontSize="md" color={"brand.1000"}>
         {children}
       </Heading>
     </PseudoBox>

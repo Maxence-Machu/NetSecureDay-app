@@ -4,6 +4,11 @@ export default {
     pathname: "/",
     isTopLevel: true
   },
+  workshops: {
+    title: "Workshops",
+    pathname: "/workshops",
+    isTopLevel: true
+  },
   favorites: {
     title: "Favoris",
     pathname: "/favorites",

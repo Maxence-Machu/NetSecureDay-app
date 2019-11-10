@@ -13,6 +13,7 @@ const Card = ({ talk, to, ...props }) => {
     : null;
 
   const isTalk = !!to;
+  const isWorkshop = (talk.state === 'workshop');
 
   return (
     <Box position="relative">
@@ -23,7 +24,7 @@ const Card = ({ talk, to, ...props }) => {
         boxShadow={isTalk ? "paper" : null}
         borderRadius="md"
         borderLeft={isTalk ? "4px solid" : null}
-        borderColor={isTalk ? "brand.900" : "gray.300"}
+        borderColor={isWorkshop ? "brand.700" : (isTalk ? "brand.600" : "gray.300")}
         borderWidth={isTalk ? null : "1px"}
         backgroundColor={isTalk ? "white" : "gray.100"}
         py="2"
@@ -38,9 +39,9 @@ const Card = ({ talk, to, ...props }) => {
           {speakers}
         </Text>
         <Stack isInline>
-          {!!talk.room && <Badge variantColor="brand">Salle {talk.room}</Badge>}
-          {talk.state === "sponsors" && (
-            <Badge variantColor="cyan">Sponsorisé</Badge>
+          {!!talk.room && <Badge variantColor="brand">{talk.room}</Badge>}
+          {talk.state === "workshop" && (
+            <Badge variantColor="red">WORKSHOP</Badge>
           )}
         </Stack>
       </Box>

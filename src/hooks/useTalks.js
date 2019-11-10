@@ -1,45 +1,52 @@
 import { useEffect, useState } from "react";
-import ConferenceHall from "../services/ConferenceHall";
+import Program from "../services/Program";
 import TalkModel, { Speaker } from "../classes/TalkModel";
 import EventModel from "../classes/EventModel";
 
-const LOCAL_STORAGE_TALKS_KEY = "ces-2019-talks";
+const LOCAL_STORAGE_TALKS_KEY = "nsd-2019-talks";
 
-function filterSelectedTalks(program, conferenceHall) {
+function filterSelectedTalks(program) {
   const selectedTalks = [];
 
-  // Logic for conference hall talks
-  conferenceHall.talks.forEach(talk => {
-    program.talks.forEach(t => {
-      if (talk.id === t.id) {
-        const speakers = conferenceHall.speakers
-          .filter(speaker => talk.speakers.includes(speaker.uid))
-          .map(speaker => new Speaker(speaker));
+  // Logic for talks
+  program.talks.forEach(talk => {
 
-        const formats = conferenceHall.formats
-          .filter(format => format.id === talk.formats)
-          .map(format => format.name)[0];
+    if(talk.state === 'event') {return}
 
-        const formattedTalk = new TalkModel(
-          talk.id,
-          t.title || talk.title,
-          t.state || talk.state,
-          t.level || talk.level,
-          t.abstract || talk.abstract,
-          t.categories || talk.categories,
-          t.formats || formats,
-          t.speakers || speakers,
-          t.room,
-          t.hour
-        );
-        selectedTalks.push(formattedTalk);
-      }
-    });
+    const companies = program.companies;
+
+    const speakers = program.speakers
+      .filter(speaker => talk.speakers && talk.speakers.includes(speaker.id))
+      .map(speaker => {
+        let company = speaker.company && companies.filter(cpy => speaker.company.includes(cpy.id));
+
+        speaker.company = company && company[0];
+
+        return new Speaker(speaker);
+      });
+
+    const formats = program.formats
+      .filter(format => format.id === talk.formats)
+      .map(format => format.name)[0];
+
+    const formattedTalk = new TalkModel(
+      talk.id,
+      talk.title,
+      talk.state,
+      talk.level,
+      talk.abstract,
+      talk.category,
+      formats,
+      speakers,
+      talk.room,
+      talk.hour
+    );
+    selectedTalks.push(formattedTalk);
   });
 
   // Logic for special events
   program.talks.forEach(t => {
-    if (t.state === "event") {
+    if (t.type === "Event") {
       const event = new EventModel(
         t.id,
         t.title,
@@ -53,14 +60,6 @@ function filterSelectedTalks(program, conferenceHall) {
     }
   });
 
-  // Logic for sponsors and keynotes
-  program.talks.forEach(t => {
-    if (t.state === "sponsors" || t.state === "keynotes") {
-      const special = Object.assign({}, t);
-      selectedTalks.push(special);
-    }
-  });
-
   return selectedTalks;
 }
 
@@ -70,9 +69,9 @@ export const useTalks = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const program = await ConferenceHall.getProgram();
-      const data = await ConferenceHall.getData();
-      const selectedTalks = filterSelectedTalks(program, data);
+      const program = await Program.getProgram();
+      //const data = await ConferenceHall.getData();
+      const selectedTalks = filterSelectedTalks(program);
       localStorage.setItem(
         LOCAL_STORAGE_TALKS_KEY,
         JSON.stringify(selectedTalks)

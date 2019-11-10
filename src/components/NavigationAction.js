@@ -31,8 +31,8 @@ const NavigationAction = ({
     <Flex
       as={Link}
       to={to}
-      color={to === location.pathname ? "white" : "brand.200"}
-      flexDir="column"
+      color={to === location.pathname ? "brand.300" : "brand.900"}
+      flexDir="row"
       align="center"
       flexGrow="1"
       flexBasis="100%"
@@ -45,12 +45,13 @@ const NavigationAction = ({
         }
       }}
     >
-      <Box as={IconElement} size="1.6rem" />
+      <Box as={IconElement} size="1.6rem"/>
       <Text
-        fontSize="0.55rem"
+        fontSize="0.75rem"
         fontWeight="bold"
         textTransform="uppercase"
         mt="1"
+        pl={4}
       >
         {children}
       </Text>

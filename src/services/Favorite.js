@@ -1,4 +1,4 @@
-const FAVORITE_KEY = "ces-favorite-2019";
+const FAVORITE_KEY = "nsd-favorite-2019";
 
 export default class Favorite {
   /**

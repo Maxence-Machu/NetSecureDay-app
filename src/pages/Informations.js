@@ -24,7 +24,7 @@ export function Informations() {
         rel="noopener noreferrer"
         my={4}
       >
-        Toutes les informations sont disponible sur le site de Codeurs En Seine
+        Toutes les informations sont disponible sur le site de NetSecure-Day
         <Icon ml={2} name="external-link" />
       </Box>
       <Heading as="h4" size="sm" mb={4}>

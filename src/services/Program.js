@@ -1,6 +1,6 @@
 import Cache from "./pwa/Cache";
 
-export default class ConferenceHall {
+export default class Program {
   static async getProgram() {
     const response = await fetch("/program.json");
     const json = await response.json();
@@ -12,7 +12,7 @@ export default class ConferenceHall {
 
     return json;
   }
-
+/*
   static async getData() {
     const response = await fetch(
       "https://blog.yoannfleury.dev/conference-hall-fetch/confs.json"
@@ -30,5 +30,5 @@ export default class ConferenceHall {
     }
 
     return json;
-  }
+  }*/
 }

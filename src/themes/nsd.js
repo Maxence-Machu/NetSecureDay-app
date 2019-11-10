@@ -1,6 +1,6 @@
 import { theme } from "@chakra-ui/core";
 
-export const themeCES = {
+export const themeNSD = {
   ...theme,
   shadows: {
     ...theme.shadows,
@@ -17,15 +17,15 @@ export const themeCES = {
     ...theme.colors,
     brand: {
       100: "#dce5ff",
-      200: "#aeceff",
-      300: "#7ec0ff",
-      400: "#4db2ff",
-      500: "#21a3fe",
-      600: "#0d8ae5",
-      700: "#0066b3",
-      800: "#004081",
-      900: "#001c50",
-      1000: "#000120"
+      200: "#CCCCCC",
+      300: "#0071BC",
+      400: "#1A67A9",
+      500: "#315E98",
+      600: "#455689",
+      700: "#c1262d",
+      800: "#315E98",
+      900: "#664a70",
+      1000: "#1c1c1c"
     }
   }
 };

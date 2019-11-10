@@ -19,6 +19,8 @@ export const Talk = () => {
 
   initScrollView();
 
+  console.log(talk);
+
   const typeAndHour = () => {
     if (talk.formats) {
       return `${talk.formats} - ${talk.hour}`;
@@ -93,7 +95,7 @@ export const Talk = () => {
             </Heading>
             <Stack isInline>
               {!!talk.room && (
-                <Badge variantColor="brand">Salle {talk.room}</Badge>
+                <Badge variantColor="brand">{talk.room}</Badge>
               )}
               {talk.state === "sponsors" && (
                 <Badge variantColor="cyan">Sponsorisé</Badge>
@@ -105,7 +107,7 @@ export const Talk = () => {
       <Heading size="lg" mb="2">
         {talk.title}
       </Heading>
-      {!!talk.level && <Badge mb="2">{talk.level}</Badge>}
+      {!!talk.level && <Badge mb="2">Niveau {talk.level} / 5 ⭐️</Badge>}
       <TalkDisplay talk={talk} />
       {talk.speakers &&
         talk.speakers.map(speaker => (

@@ -11,11 +11,12 @@ import {
   Icon
 } from "@chakra-ui/core";
 import { FaDownload } from "react-icons/fa";
-import logo from "./logo.svg";
+import logo from "./logo.png";
 import routes from "../../routes";
 import backToTop from "../../helpers/backToTop";
+import {FiMenu} from "react-icons/all";
 
-const PWA_INSTALLATION_REFUSAL = "CES2019-PWA-INSTALLATION-REFUSAL";
+const PWA_INSTALLATION_REFUSAL = "NSD2019-PWA-INSTALLATION-REFUSAL";
 
 export const Topbar = props => {
   const [doesShowInstallationButton, setDoesShowInstallationButton] = useState(
@@ -70,6 +71,8 @@ export const Topbar = props => {
   const { isTopLevel, title } =
     Object.values(routes).find(x => x.pathname === pathname) || {};
 
+
+
   return (
     <Flex backgroundColor="white" shadow="md" minH="3.6rem" {...props}>
       <Stack isInline px="4" py="2" align="center" spacing="4">
@@ -79,7 +82,7 @@ export const Topbar = props => {
               src={logo}
               rounded="md"
               overflow="hidden"
-              backgroundColor="brand.700"
+              backgroundColor="brand.100"
             />
           </AspectRatioBox>
         )}
@@ -89,7 +92,7 @@ export const Topbar = props => {
             <>
               {title}
               <Box fontSize="0.7rem" color="gray.400">
-                Codeurs en Seine &bull; #CODEURS2019
+                NetSecure-Day &bull; #NSD19
               </Box>
             </>
           )}
@@ -106,6 +109,18 @@ export const Topbar = props => {
           >
             <Box as={FaDownload} size="1.0rem" />
           </Button>
+        )}
+        {isTopLevel && (
+        <Button
+            position="absolute"
+            right="4"
+            aria-label="Menu"
+            variant="ghost"
+            px="0"
+            onClick={props.onOpenDrawer}
+        >
+          <Box as={FiMenu} size="1.0rem" />
+        </Button>
         )}
       </Stack>
     </Flex>

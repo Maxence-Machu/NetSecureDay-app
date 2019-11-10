@@ -1,11 +1,20 @@
 import React from "react";
-import { ThemeProvider, CSSReset, Box, Flex } from "@chakra-ui/core";
+import {
+  ThemeProvider,
+  useDisclosure,
+  CSSReset,
+  Box,
+  Flex,
+  Drawer,
+  DrawerOverlay,
+  Button, DrawerContent
+} from "@chakra-ui/core";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { MdFavorite, MdToday, MdInfo, MdBusiness } from "react-icons/md";
+import { MdSecurity, MdFavorite, MdToday, MdInfo, MdBusiness } from "react-icons/md";
 import Navigation from "./components/Navigation";
 import { Program } from "./pages/Program";
 import { Informations } from "./pages/Informations";
-import { themeCES } from "./themes/ces";
+import { themeNSD } from "./themes/nsd";
 import { Talk } from "./pages/Talk";
 import { FavoritesContextProvider } from "./contexts/FavoritesContext";
 import NavigationAction from "./components/NavigationAction";
@@ -14,6 +23,10 @@ import { Topbar } from "./components/Topbar";
 import { SCROLLVIEW_ID } from "./helpers/backToTop";
 import { NotFound404 } from "./pages/NotFound404";
 import { Sponsors } from "./pages/Sponsors";
+import {DrawerBody, DrawerHeader} from "@chakra-ui/core/dist";
+import {FaDownload} from "react-icons/all";
+import {NSDMenu} from "./components/NSDMenu/NSDMenu";
+import {Workshops} from "./pages/Workshops";
 
 const updateCssViewportHeight = () => {
   let vh = window.innerHeight * 0.01;
@@ -26,21 +39,23 @@ window.addEventListener("resize", () => {
 });
 
 function App() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <React.StrictMode>
-      <ThemeProvider theme={themeCES}>
+      <ThemeProvider theme={themeNSD}>
         <CSSReset />
         <Router>
           <FavoritesContextProvider>
             <Flex
-              color="brand.900"
+              color="brand.1000"
               direction="column"
               h="100vh"
               style={{
                 height: "calc(var(--vh, 1vh) * 100)"
               }}
             >
-              <Topbar zIndex="1" />
+              <Topbar zIndex="1" onOpenDrawer={onOpen}/>
               <Box flex="1" position="relative">
                 <Box
                   id={SCROLLVIEW_ID}
@@ -54,6 +69,9 @@ function App() {
                   <Switch>
                     <Route exact path={routes.program.pathname}>
                       <Program />
+                    </Route>
+                    <Route exact path={routes.workshops.pathname}>
+                      <Workshops />
                     </Route>
                     <Route exact path={routes.favorites.pathname}>
                       <Program isFavorite />
@@ -73,32 +91,10 @@ function App() {
                   </Switch>
                 </Box>
               </Box>
-              <Navigation>
-                <NavigationAction
-                  to={routes.program.pathname}
-                  iconElement={MdToday}
-                >
-                  Programme
-                </NavigationAction>
-                <NavigationAction
-                  to={routes.favorites.pathname}
-                  iconElement={MdFavorite}
-                >
-                  Favoris
-                </NavigationAction>
-                <NavigationAction
-                  to={routes.info.pathname}
-                  iconElement={MdInfo}
-                >
-                  Info
-                </NavigationAction>
-                <NavigationAction
-                  to={routes.sponsors.pathname}
-                  iconElement={MdBusiness}
-                >
-                  Sponsors
-                </NavigationAction>
-              </Navigation>
+              <Drawer placement={'right'} onClose={onClose} isOpen={isOpen} size={'xs'}>
+                <DrawerOverlay />
+                <NSDMenu/>
+              </Drawer>
             </Flex>
           </FavoritesContextProvider>
         </Router>

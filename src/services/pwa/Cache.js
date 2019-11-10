@@ -5,7 +5,7 @@ export default class Cache {
    */
   static async get() {
     try {
-      return await caches.open("ces-2019");
+      return await caches.open("nsd-2019");
     } catch (error) {
       console.error(
         "Your connection is not secure and the cache cannot be open"

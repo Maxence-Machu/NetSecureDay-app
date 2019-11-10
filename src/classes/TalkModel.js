@@ -5,7 +5,7 @@ export default class TalkModel {
    * @param {string} state The state of the talk
    * @param {string} level The level of the talk
    * @param {string} abstract The abstract of the talk
-   * @param {string} categories The categories of the talk
+   * @param {string} category The category of the talk
    * @param {string} formats The format of the talk
    * @param {Array<Speaker>} speakers The speakers of the talk
    * @param {string} comments The comments of the talk
@@ -18,7 +18,7 @@ export default class TalkModel {
     state,
     level,
     abstract,
-    categories,
+    category,
     formats,
     speakers,
     room,
@@ -29,7 +29,7 @@ export default class TalkModel {
     this.state = state;
     this.level = level;
     this.abstract = abstract;
-    this.categories = categories;
+    this.category = category;
     this.formats = formats;
     this.speakers = speakers;
     this.room = room;
@@ -43,7 +43,7 @@ export class Speaker {
    * @param {string} speaker.uid
    * @param {string} speaker.displayName
    * @param {string} speaker.bio
-   * @param {string} speaker.company
+   * @param {Company} speaker.company
    * @param {string} speaker.photoURL
    * @param {string} speaker.twitter
    * @param {string} speaker.github
@@ -56,5 +56,21 @@ export class Speaker {
     this.photoURL = speaker.photoURL;
     this.twitter = speaker.twitter;
     this.github = speaker.github;
+  }
+}
+
+
+
+export class Company {
+  /**
+   * @param {object} company The complete company object coming from data
+   * @param {string} company.id
+   * @param {string} company.displayName
+   * @param {string} company.photoURL
+   */
+  constructor(company) {
+    this.id = company.id;
+    this.displayName = company.displayName;
+    this.photoURL = company.photoURL;
   }
 }
