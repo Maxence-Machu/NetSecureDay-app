@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { useParams } from "react-router-dom";
-import { AspectRatioBox, Heading, Box, Stack, Badge } from "@chakra-ui/core";
+import { AspectRatioBox, Heading, Box, Stack, Badge, Divider } from "@chakra-ui/core";
 import { Layout } from "../components/templates/Layout";
 import TalkDisplay from "../components/TalkDisplay";
 import FAV from "../components/FAV";
@@ -18,8 +18,6 @@ export const Talk = () => {
   const { id } = useParams();
 
   initScrollView();
-
-  console.log(talk);
 
   const typeAndHour = () => {
     if (talk.formats) {
@@ -113,6 +111,7 @@ export const Talk = () => {
         talk.speakers.map(speaker => (
           <SpeakerDisplay key={speaker.id} speaker={speaker} />
         ))}
+      <Divider my="5"/>
       <SponsorsDisplay />
       <FAV
         talk={talk}

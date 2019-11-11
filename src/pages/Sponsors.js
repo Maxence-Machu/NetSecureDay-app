@@ -11,25 +11,25 @@ import {
   AspectRatioBox,
   Icon
 } from "@chakra-ui/core";
-import { BASE_IMAGE } from "../components/Sponsors/SponsorsDisplay";
 import { initScrollView } from "../helpers/backToTop";
 
 const mapping = {
+  partenaire: "teal",
   gold: "yellow",
   silver: "gray",
   bronze: "orange",
-  partner: "teal"
+  startup: "lightBlue",
 };
 
 const Card = ({ sponsor }) => (
   <Box rounded="lg" borderWidth={1}>
     <AspectRatioBox ratio={16 / 9}>
       <Image
-        src={`${BASE_IMAGE}/${sponsor.logo}`}
+        src={sponsor.logo}
         alt={sponsor.name}
         borderBottomWidth={1}
         roundedTop="lg"
-        objectFit="cover"
+        objectFit="contain"
         padding={2}
       />
     </AspectRatioBox>
@@ -67,21 +67,41 @@ export const Sponsors = () => {
       <Box
         borderWidth={1}
         rounded="lg"
-        color="brand.800"
+        color="brand.900"
         display="flex"
         alignItems="center"
         justifyContent="center"
         padding={2}
-        as="a"
-        href="https://www.clever-cloud.com"
         target="_blank"
         rel="noopener noreferrer"
         my={4}
       >
-        Application hébergé sur Clever Cloud
-        <Icon ml={2} name="external-link" />
+          Grâce à eux cet événement a pu voir le jour
       </Box>
       <Stack spacing={8}>
+
+      <SimpleGrid
+          columns={{ xs: 1, sm: 2, md: 4 }}
+          spacing={{ xs: 2, md: 8 }}
+      >
+          {sponsors
+              .filter(sponsor => sponsor.type === "co-organisateur")
+              .map(sponsor => (
+                  <Card sponsor={sponsor} key={sponsor.name} />
+              ))}
+      </SimpleGrid>
+
+      <SimpleGrid
+          columns={{ xs: 1, sm: 2, md: 4 }}
+          spacing={{ xs: 2, md: 8 }}
+      >
+          {sponsors
+              .filter(sponsor => sponsor.type === "partenaire")
+              .map(sponsor => (
+                  <Card sponsor={sponsor} key={sponsor.name} />
+              ))}
+      </SimpleGrid>
+
         <SimpleGrid columns={{ xs: 1, md: 2 }} spacing={{ xs: 2, md: 8 }}>
           {sponsors
             .filter(sponsor => sponsor.type === "gold")
@@ -117,7 +137,7 @@ export const Sponsors = () => {
           spacing={{ xs: 2, md: 8 }}
         >
           {sponsors
-            .filter(sponsor => sponsor.type === "partner")
+            .filter(sponsor => sponsor.type === "startup")
             .map(sponsor => (
               <Card sponsor={sponsor} key={sponsor.name} />
             ))}

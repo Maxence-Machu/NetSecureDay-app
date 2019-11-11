@@ -9,16 +9,13 @@ import {
 } from "@chakra-ui/core";
 import { sponsors } from "./sponsors.json";
 
-export const BASE_IMAGE =
-  "https://www.codeursenseine.com/images/edition2019/sponsors/";
-
 export const SponsorsDisplay = () => {
   return (
     <>
       <Stack>
         <Box>
           <Heading as="h6" size="md">
-            {sponsors.length} Sponsors
+            Partenaires & Sponsors
           </Heading>
         </Box>
         <Grid
@@ -47,9 +44,9 @@ export const SponsorsDisplay = () => {
               >
                 <Image
                   as="img"
-                  src={`${BASE_IMAGE}/${sponsor.logo}`}
+                  src={sponsor.logo}
                   alt={sponsor.name}
-                  objectFit="cover"
+                  objectFit="contain"
                   padding={1}
                 />
               </AspectRatioBox>

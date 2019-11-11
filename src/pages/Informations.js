@@ -19,48 +19,43 @@ export function Informations() {
         justifyContent="center"
         padding={2}
         as="a"
-        href="https://www.codeursenseine.com"
+        href="https://www.netsecure-day.fr"
         target="_blank"
         rel="noopener noreferrer"
         my={4}
       >
-        Toutes les informations sont disponible sur le site de NetSecure-Day
+        Toutes les informations sont disponibles sur le site de NetSecure-Day
         <Icon ml={2} name="external-link" />
       </Box>
-      <Heading as="h4" size="sm" mb={4}>
+      <Heading as="h2" size="sm" mb={4}>
         Comment venir ?
       </Heading>
 
       <Stack spacing={4}>
         <Box>
-          <Text fontSize="1.4rem" mb={1}>
-            Lieu de l'événement
-          </Text>
           <Text>
-            Kindarena - Palais des sports de Rouen
+            Parc des Expositions de Rouen
             <br />
-            40 rue de Lillebonne
-            <br />
-            76000 ROUEN, FRANCE
+            76121 Le Grand-Quevilly
           </Text>
         </Box>
 
         <Box textAlign="center">
           <iframe
-            title="Carte montrant l'emplacement du Kindarena, le palais des sports de Rouen"
+            title="Carte montrant l'emplacement du Parc des Expositions de Rouen"
             width="90%"
             height="350"
             frameBorder="0"
             scrolling="no"
             marginHeight="0"
             marginWidth="0"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=1.0586571693420412%2C49.44463553274022%2C1.067626476287842%2C49.45076679110293&amp;layer=mapnik&amp;marker=49.44769777013715%2C1.0631418228149414"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=1.0459766909480097%2C49.388059632408456%2C1.0640011355280878%2C49.39789176468678&amp;layer=transportmap&amp;marker=49.392975944551345%2C1.0549889132380486"
             style={{ border: "1px solid black", margin: "auto" }}
           />
 
           <small>
             <a
-              href="https://www.openstreetmap.org/?mlat=49.44770&amp;mlon=1.06314#map=17/49.44770/1.06314"
+              href="https://www.openstreetmap.org/?mlat=49.3930&mlon=1.0550#map=16/49.3930/1.0550&layers=T"
               title="Lien vers le site d'OpenStreetMap pour afficher la carte en plus grande"
               target="_blank"
               rel="noopener noreferrer"
@@ -78,7 +73,7 @@ export function Informations() {
             </span>
           </Text>
           <Text fontWeight="bold">
-            Il existe plusieurs parking à vélo autour du Kindarena
+            Il existe plusieurs parking à vélo autour du Parc des Expositions
           </Text>
           <a
             href="https://www.cyclosm.org/#map=17/49.44759/1.06432/cyclosm"
@@ -97,8 +92,8 @@ export function Informations() {
               🚆
             </span>
           </Text>
-          <Text fontWeight="bold">TEOR T1, T2 ou T3</Text>
-          <Text>Arrêt Mont-Riboudet/Kindarena</Text>
+          <Text fontWeight="bold">TEOR T4</Text>
+          <Text>Arrêt Zénith - Parc Expo</Text>
         </Box>
 
         <Box>
@@ -108,14 +103,7 @@ export function Informations() {
               🚗
             </span>
           </Text>
-          <Text fontWeight="bold">Parking du Mont Riboudet (payant)</Text>
-          <Text mb="1">Rue Micheline Ostermeyer, 76000 Rouen</Text>
-
-          <Text fontWeight="bold">Parking des Docks76 (gratuit 3h00) </Text>
-          <Text mb="1">8-12 Rue Netien, 76000 Rouen</Text>
-
-          <Text fontWeight="bold">Parking des quais de Seine </Text>
-          <Text mb="1">Hangar 10, Quai Ferdinand de Lesseps, 76000 Rouen</Text>
+          <Text fontWeight="bold">Parking du Parc des Expositions</Text>
         </Box>
       </Stack>
     </Layout>

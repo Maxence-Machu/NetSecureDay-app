@@ -82,20 +82,6 @@ export function Workshops({ isFavorite = false }) {
         <Heading size="md" mb="2">Prérequis</Heading>
         <Text>Texte ici pour expliquer ques les workshops ont des prérequis</Text>
       </Box>
-      <Box
-          d="block"
-          boxShadow={"paper"}
-          borderRadius="md"
-          borderColor={"gray.300"}
-          borderWidth={"1px"}
-          backgroundColor={"white"}
-          py="2"
-          px="3"
-          mb="4"
-      >
-        <Heading size="md" mb="2">Inscription</Heading>
-        <Text>Texte ici pour expliquer ques les workshops sont sur inscription</Text>
-      </Box>
       {!loading && <Box>{getContent()}</Box>}
     </Layout>
   );

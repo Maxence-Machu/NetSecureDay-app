@@ -93,7 +93,7 @@ function App() {
               </Box>
               <Drawer placement={'right'} onClose={onClose} isOpen={isOpen} size={'xs'}>
                 <DrawerOverlay />
-                <NSDMenu/>
+                <NSDMenu onClose={onClose}/>
               </Drawer>
             </Flex>
           </FavoritesContextProvider>
