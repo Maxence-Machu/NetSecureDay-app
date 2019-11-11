@@ -18,7 +18,7 @@ const mapping = {
   gold: "yellow",
   silver: "gray",
   bronze: "orange",
-  startup: "lightBlue",
+  startup: "blue",
 };
 
 const Card = ({ sponsor }) => (
