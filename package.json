@@ -15,11 +15,13 @@
     "react-dom": "^16.11.0",
     "react-icons": "^3.8.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "rewire": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build-non-split": "node ./scripts/build-non-split.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prettier": "prettier 'src/**/*.js' --write"
