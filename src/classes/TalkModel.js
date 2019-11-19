@@ -11,6 +11,7 @@ export default class TalkModel {
    * @param {string} comments The comments of the talk
    * @param {string} room The room of the talk
    * @param {string} hour The hour of the talk
+   * @param {string} requirement The requirements of the talk
    */
   constructor(
     id,
@@ -22,7 +23,8 @@ export default class TalkModel {
     formats,
     speakers,
     room,
-    hour
+    hour,
+    requirement
   ) {
     this.id = id;
     this.title = title;
@@ -34,6 +36,7 @@ export default class TalkModel {
     this.speakers = speakers;
     this.room = room;
     this.hour = hour;
+    this.requirement = requirement;
   }
 }
 

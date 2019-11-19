@@ -10,7 +10,6 @@ import {
   Flex
 } from "@chakra-ui/core";
 import { MdBrokenImage } from "react-icons/md";
-import {Link} from "react-router-dom";
 
 const propTypes = {};
 
@@ -18,8 +17,6 @@ const defaultProps = {};
 
 const SpeakerDisplay = ({ speaker }) => {
   const [showAvatar, setShowAvatar] = useState(true);
-
-  console.log(speaker.company);
 
   return (
 

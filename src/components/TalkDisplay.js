@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import marked from "marked";
-import { Box, Text } from "@chakra-ui/core";
+import {Box, Divider, Text} from "@chakra-ui/core";
 
 const propTypes = {
   talk: PropTypes.object.isRequired
@@ -16,6 +16,18 @@ const TalkDisplay = ({ talk }) => {
         <Text
           dangerouslySetInnerHTML={{ __html: marked(talk.abstract || "") }}
         />
+      )}
+
+      {talk.requirement && (
+          <Box>
+            <Divider my="5"/>
+            <Text fontWeight="bold" color="brand.700">
+              Prérequis du Workshop:
+            </Text>
+            <Text
+              dangerouslySetInnerHTML={{ __html: marked(talk.requirement || "") }}
+            />
+          </Box>
       )}
     </Box>
   );

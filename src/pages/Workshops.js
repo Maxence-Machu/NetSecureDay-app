@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect } from "react";
 import {Box, Heading, Text} from "@chakra-ui/core";
-import { useFavoriteContext } from "../contexts/FavoritesContext";
 import { Layout } from "../components/templates/Layout";
 import Card from "../components/Card";
 import { useTalks } from "../hooks/useTalks";
@@ -14,7 +13,6 @@ export const PROGRAM_SCROLL_OFFSET_KEY = "scroll-offset";
 
 export function Workshops({ isFavorite = false }) {
   const [talks, loading] = useTalks();
-  const { favorites } = useFavoriteContext();
 
   useEffect(() => {
     if (!loading) {
@@ -45,7 +43,6 @@ export function Workshops({ isFavorite = false }) {
 
   const getContent = () => {
 
-    console.log(talksGroupedByHour);
     return Object.keys(talksGroupedByHour)
       .sort(sortHours)
         .map(hour => (
@@ -79,8 +76,8 @@ export function Workshops({ isFavorite = false }) {
           px="3"
           mb="4"
       >
-        <Heading size="md" mb="2">Prérequis</Heading>
-        <Text>Texte ici pour expliquer ques les workshops ont des prérequis</Text>
+        <Heading size="md" mb="2"><span role="img" aria-label="Attention">⚠</span>️ Attention</Heading>
+        <Text>Certains Workshops ont des prérequis</Text>
       </Box>
       {!loading && <Box>{getContent()}</Box>}
     </Layout>

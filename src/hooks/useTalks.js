@@ -39,7 +39,8 @@ function filterSelectedTalks(program) {
       formats,
       speakers,
       talk.room,
-      talk.hour
+      talk.hour,
+      talk.requirement
     );
     selectedTalks.push(formattedTalk);
   });

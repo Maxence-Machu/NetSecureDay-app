@@ -9,7 +9,6 @@ import {
   Stack,
   Heading,
   AspectRatioBox,
-  Icon
 } from "@chakra-ui/core";
 import { initScrollView } from "../helpers/backToTop";
 

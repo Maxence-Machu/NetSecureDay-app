@@ -39,11 +39,13 @@ const Card = ({ talk, to, ...props }) => {
           {speakers}
         </Text>
         <Stack isInline>
+          {!!talk.category && <Badge variantColor="grey">{talk.category.substring(0, 3)}</Badge>}
           {!!talk.room && <Badge variantColor="brand">{talk.room}</Badge>}
           {talk.state === "workshop" && (
             <Badge variantColor="red">WORKSHOP</Badge>
           )}
         </Stack>
+
       </Box>
       {isTalk && (
         <FAV talk={talk} position="absolute" bottom="1" right="1" size="sm" />

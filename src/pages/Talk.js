@@ -105,7 +105,11 @@ export const Talk = () => {
       <Heading size="lg" mb="2">
         {talk.title}
       </Heading>
-      {!!talk.level && <Badge mb="2">Niveau {talk.level} / 5 ⭐️</Badge>}
+        <Stack isInline mb={4}>
+            {!!talk.level && <Badge>Niveau {talk.level} / 5 <span role="img" aria-label="Etoile">⭐</span> ️</Badge>}
+            {!!talk.category && <Badge >{talk.category}</Badge>}
+        </Stack>
+      <Divider my="5"/>
       <TalkDisplay talk={talk} />
       {talk.speakers &&
         talk.speakers.map(speaker => (

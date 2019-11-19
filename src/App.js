@@ -7,24 +7,18 @@ import {
   Flex,
   Drawer,
   DrawerOverlay,
-  Button, DrawerContent
 } from "@chakra-ui/core";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { MdSecurity, MdFavorite, MdToday, MdInfo, MdBusiness } from "react-icons/md";
-import Navigation from "./components/Navigation";
 import { Program } from "./pages/Program";
 import { Informations } from "./pages/Informations";
 import { themeNSD } from "./themes/nsd";
 import { Talk } from "./pages/Talk";
 import { FavoritesContextProvider } from "./contexts/FavoritesContext";
-import NavigationAction from "./components/NavigationAction";
 import routes from "./routes";
 import { Topbar } from "./components/Topbar";
 import { SCROLLVIEW_ID } from "./helpers/backToTop";
 import { NotFound404 } from "./pages/NotFound404";
 import { Sponsors } from "./pages/Sponsors";
-import {DrawerBody, DrawerHeader} from "@chakra-ui/core/dist";
-import {FaDownload} from "react-icons/all";
 import {NSDMenu} from "./components/NSDMenu/NSDMenu";
 import {Workshops} from "./pages/Workshops";
 

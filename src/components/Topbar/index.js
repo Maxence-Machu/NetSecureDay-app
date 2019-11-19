@@ -80,6 +80,7 @@ export const Topbar = props => {
           <AspectRatioBox w="2.2rem" ratio="1" onClick={() => backToTop()}>
             <Image
               src={logo}
+              alt="Logo de NetSecure Day"
               rounded="md"
               overflow="hidden"
               backgroundColor="brand.100"
